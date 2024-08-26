@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            text-transform: capitalize;
+        }
+
+        html {
+            font-size: 60.5%;
+        }
+
+        body {
+            background: #f7f7f7;
+            font-family: "Poppins", sans-serif;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 2rem 9%;
+        }
+
+        .heading {
+            font-size: 3.5rem;
+            color: rgb(32, 32, 32);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .heading span {
+            color: rgb(221, 174, 19);
+        }
+
+        header .logo {
+            margin-left: 2%;
+            font-size: 2.8rem;
+            font-weight: 770;
+            text-decoration: none;
+            color: #0D7C66;
+        }
+
+        header .logo i {
+            font-size: 2.2rem;
+        }
+
+        header .logo:hover {
+            color: #fc8c05;
+        }
+
+        header .navbar ul {
+            list-style: none;
+            display: flex;
+            margin-bottom: 2%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header .navbar li {
+            margin-left: 2.5rem;
+        }
+
+        header .navbar ul li a {
+            font-size: 1.57rem;
+            color: #0e2431;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.04rem;
+            transition: 0.2s;
+        }
+
+        header .navbar ul li a.active,
+        header .navbar ul li a:hover {
+            color: #fa4310;
+            border-bottom: 0.2rem solid #011aff;
+            padding: 0.5rem 0;
+        }
+
+
+        #menu {
+            font-size: 3rem;
+            cursor: pointer;
+            color: rgb(24, 2, 63);
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            #menu {
+                display: block;
+            }
+
+            header .navbar {
+                position: fixed;
+                top: 6.5rem;
+                right: -120%;
+                width: 75%;
+                height: 100%;
+                text-align: left;
+                align-items: flex-start;
+                background-color: #0e0f31;
+            }
+
+            header .navbar ul {
+                flex-flow: column;
+                padding: 1rem;
+            }
+
+            header .navbar ul li {
+                text-align: center;
+                width: 100%;
+                margin: 1rem 0;
+                border-radius: 0.5rem;
+                width: 26rem;
+            }
+
+            header .navbar ul li a {
+                display: block;
+                padding: 1rem;
+                text-align: left;
+                color: #fff;
+                font-size: 2rem;
+            }
+
+            header .navbar ul li a.active,
+            header .navbar ul li a:hover {
+                padding: 1rem;
+                color: #fff;
+                border-radius: 0.5rem;
+                border-bottom: 0.5rem solid #011aff;
+            }
+
+            .fa-times {
+                transform: rotate(180deg);
+            }
+        }
+
+        .home {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        .home #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .home::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .home .content {
+            flex: 1 1 40rem;
+            padding-top: 1rem;
+            z-index: 1;
+        }
+
+        .home .content h2 {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #e9ecef;
+        }
+
+        .home .content h2 span {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #ff7b00;
+        }
+
+        .home .content p {
+            font-size: 2.5rem;
+            color: #000;
+            font-weight: 600;
+            padding: 1rem 0;
+        }
+
+        .home .content p span {
+            font-size: 2.5rem;
+            color: rgb(148, 8, 8);
+            font-weight: 600;
+            padding: 1rem 0;
+        }
+
+        .home .btn {
+            margin-top: 1rem;
+            position: absolute;
+            line-height: 0;
+            padding: 1.6rem 3rem;
+            border-radius: 4em;
+            transition: 0.5s;
+            color: #fff;
+            background: #2506ad;
+            box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
+            font-family: "Nunito", sans-serif;
+        }
+
+        .home .btn span {
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: 0.1rem;
+        }
+
+        .home .btn i {
+            margin-left: 0.3rem;
+            font-size: 1.5rem;
+            transition: 0.3s;
+
+        }
+
+        .home .btn:hover {
+            background: #1a047e;
+        }
+
+        .socials .social-icons {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        .socials .social-icons li {
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            background-color: #09011b;
+            width: 44px;
+            height: 44px;
+            text-align: center;
+            margin-right: 8px;
+            border-radius: 100%;
+        }
+
+        .about .row {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 4rem;
+        }
+
+        .about .row .image {
+            text-align: center;
+            flex: 1 1 35rem;
+        }
+
+        .about .row .image img {
+            margin: 4rem;
+            width: 44rem;
+            height: auto;
+            border-radius: 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+            mix-blend-mode: luminosity;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .about .row .content p {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            font-family: "Nunito";
+            font-weight: 600;
+            text-transform: none;
+        }
+
+        .about .row .content .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-family: "Nunito";
+            font-weight: 600;
+        }
+
+        .resumebtn .btn {
+            padding: 1.7rem 3rem;
+            border-radius: 0.5em;
+            transition: 0.3s;
+            color: #fff;
+            background: #2506ad;
+            box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
+            font-family: "Nunito", sans-serif;
+        }
+
+        /* about media queries starts*/
+        @media screen and (max-width: 600px) {
+            .about .row .image {
+                margin-top: 2rem;
+            }
+
+            .about .row .image img {
+                margin: 0 auto;
+                width: 80%;
+                mix-blend-mode: normal;
+            }
+
+            .about .row {
+                padding: 0.5rem;
+                margin-bottom: 7rem;
+            }
+
+            .about .row .content {
+                padding: 1rem;
+            }
+
+            .about .row .content .box-container {
+                gap: 0;
+            }
+        }
+
+        .skills .heading span {
+            color: rgb(255, 230, 0);
+        }
+
+        .skills .container {
+            background: rgba(0, 0, 22, 0.4);
+            color: #fff;
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 90%;
+            margin: auto;
+            margin-top: 2rem;
+        }
+
+        .skills .container .row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+
+        .skills .container .bar {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 22, 0.9);
+            transition: 0.2s;
+        }
+
+        .skills .container .bar .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+
+        .skills .container .bar .info span {
+            font-size: 2rem;
+            font-weight: 500;
+            font-family: "Poppins";
+            margin-left: 0.5rem;
+        }
+
+        /* skills media queries starts*/
+        @media screen and (max-width: 600px) {
+            .skills .container {
+                padding: 0;
+                margin: 0;
+            }
+
+            .skills .container .row {
+                grid-template-columns: repeat(2, 1fr);
+                margin: 1rem;
+                padding: 2rem 0.2rem 2rem 0.2rem;
+                gap: 1rem;
+            }
+
+            .skills .container {
+                margin-top: 5px;
+                width: 100%;
+            }
+        }
+
+        /*circles on timeline*/
+
+
+
+        .contact .container {
+            max-width: 1050px;
+            width: 100%;
+            background: #fff;
+            border-radius: 1.5rem;
+            margin: 2rem 5rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact .container .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2.5rem 2rem;
+        }
+
+        .contact .content .image-box {
+            max-width: 60%;
+            margin-left: 4rem;
+        }
+
+        .contact .content .image-box img {
+            width: 100%;
+            height: 40rem;
+            position: relative;
+        }
+
+        /*  */
+
+        .container {
+            display: flex;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 1100px;
+
+        }
+
+        .container img {
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 40px;
+            flex: 1;
+        }
+
+        .content h1 {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .content button {
+            background-color: #e39551;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .content button:hover {
+            background-color: #1f60a5;
+        }
+
+        .socials .social-icons {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        .socials .social-icons li {
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            display: inline-block;
+            line-height: 44px;
+            color: #00d9ff;
+            background-color: #09011b;
+            width: 44px;
+            height: 44px;
+            text-align: center;
+            margin-right: 8px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+        }
+
+        .social-icons a:active,
+        .social-icons a:focus,
+        .social-icons a:hover {
+            color: #fff;
+            background-color: #0685da;
+        }
+
+        .social-icons a.github:hover {
+            background-color: #0e0e0e;
+        }
+
+        .social-icons a.twitter:hover {
+            background-color: #00aced;
+        }
+
+        .social-icons a.linkedin:hover {
+            background-color: #007bb6;
+        }
+
+        .social-icons a.dev:hover {
+            background-color: #070707;
+        }
+
+        .social-icons a.instagram:hover {
+            background-color: #ee00da;
+        }
+
+        /*  */
+
+        .skills-container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .HTML {
+            background-color: #ff6b6b;
+            width: 90%;
+        }
+
+        .CSS {
+            background-color: #8a2be2;
+            width: 80%;
+        }
+
+        .Js {
+            background-color: #4682b4;
+            width: 5%;
+        }
+
+        .Bootstrap {
+            background-color: slateblue;
+            width: 95%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav section -->
+    <header style="background-color: #ffe225; height: 70px;">
+        <a href="" class="logo"></a>
+
+        <nav class="navbar">
+            <ul>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Skills</a></li>
+                <li><a href="">Education</a></li>
+                <li><a href="">Work</a></li>
+                <li><a href="">Experience</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--  -->
+    <section class="home" id="home"
+        style="background-image: url(https://jooinn.com/images/lonely-tree-reflection-3.jpg); background-repeat: no-repeat;background-size: cover;">
+
+        <div class="content">
+            <h2>Hi ,<br /> I'm ayush <span>mahajan</span></h2>
+            <p>i am <span class="typing-text">Full Stack Developer</span></p>
+            <a href="resume.html" class="btn" style="margin-top: 5%;"><span>Resume</span>
+                <i class="fas fa-arrow-circle-down"></i>
+            </a>
+            <div class="socials">
+                <ul class="social-icons">
+                    <li><a class="linkedin" href=""><i class="fab fa-linkedin"></i></a></li>
+                    <li><a class="github" href=""><i class="fab fa-github"></i></a></li>
+                    <li><a class="twitter" href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a class="telegram" href="" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+                    <li><a class="instagram" href=""><i class="fab fa-instagram" target="_blank"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="image">
+            <img class="tilt" src="">
+        </div>
+    </section>
+
+
+    <!-- about section starts -->
+    <section class="about" id="about">
+        <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+
+        <div class="row">
+
+            <div class="container">
+                <img src=" https://st1.bollywoodlife.com/wp-content/uploads/2018/12/danish-zehen-dead.jpg">
+                <div class="content">
+                    <h1>AYUSH MAHAJAN</h1>
+                    <p>As a Full Stack Developer, you're skilled in both front-end and back-end development,
+                        allowing you to handle every aspect of a web application. You likely have expertise in
+                        various programming languages, frameworks, and tools that enable you to create dynamic,
+                        responsive, and user-friendly websites and applications. Your role involves not only writing
+                        clean and efficient code but also understanding the architecture of web solutions, ensuring
+                        scalability, security, and performance.</p>
+                    <p>Information</p>
+
+                    <button>LEARN MORE</button>
+                </div>
+
+                <!--  -->
+
+            </div>
+            <div class="content"></div>
+
+        </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+
+        <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
+
+
+        <div class="container">
+
+            <div class="skills-container">
+                <h1>Skills</h1>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>HTML</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner HTML"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>CSS</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner CSS"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Js</span>
+                        <span>5%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner Js"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Bootstrap</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner Bootstrap"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="education" id="education">
+
+        <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+
+
+    </section>
+    <!--  -->
+
+    <section class="work" id="work">
+
+
+
+    </section>
+
+    <section class="experience" id="experience">
+
+        <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
+
+
+
+    </section>
+    <section class="contact" id="contact">
+
+        <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+
+        <div class="container">
+            <div class="content">
+                <div class="image-box">
+                    <img draggable="false" src="">
+                </div>
+                <form id="contact-form">
+
+                    <div class="form-group">
+                        <div class="field">
+
+                        </div>
+                    </div>
+                    <div class="button-area">
+                        <button type="submit">
+                            Submit <i class="fa fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+
+
+    </section>
+
+</body>
+
+</html>
